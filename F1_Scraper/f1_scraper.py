@@ -1,22 +1,19 @@
 
 def get_soup(url):
     website= requests.get(url)
-    website.raise_for_status() #check for erros on urllink
+    website.raise_for_status()
     soup = bs4.BeautifulSoup(website.text, 'html.parser')
     return(soup)
 
 def scrape_links(soup):
     link_list = []
-    #fetch href
     for link in soup.find_all('a'):
         link_list.append(link.get('href'))
-
     short_url = 'https://www.formula1.com'
     for i, val in enumerate(link_list):
         link_list[i] = short_url+val
     return(link_list)
 
-#SHOULD THE get FUNCTIONS TAKE soup or url AS A PARAMETER? OVER LOADING IN PYTHON?
 def get_year_links(soup):
     year_soup = soup.select('div.resultsarchive-filter-wrap')[0]
     return(scrape_links(year_soup))
@@ -28,7 +25,6 @@ def get_cat_links(soup):
 def get_race_links(soup):
     race_soup = soup.select('div.resultsarchive-filter-wrap')[2]
     return(scrape_links(race_soup))
-
 
 def scrape_table(soup): #very slow 
     table = []
@@ -65,7 +61,7 @@ def get_file_name(url): #gotta be a faster way to get this info, how to deal wit
     return(path+year_race+'.csv')
 
 #MAIN
-import requests, bs4,csv
+import requests,bs4,csv,os
 
 path = '/Users/maxwellgriffith/Documents/MyProjects/Python_Projects/F1_Scraper/raceresults/'
 
@@ -94,9 +90,5 @@ for link in racelinks_2019:
     race_table = scrape_table(race_soup)
     write_csv(file_name,race_table)
 
-#TODDO NEED A FUNCTION THAT CREATES A NEW FOLDER FOR EACH YEAR
-#TODO for 'all' races formating is weird
+#TODDO NEED A FUNCTION THAT CREATES A NEW FOLDER FOR EACH YEAR?
 #TODO it be slow as heck
-
-'/Users/maxwellgriffith/Documents/MyProjects/Python_Projects/F1_Scraper/raceresults'
-'/Users/maxwellgriffith/Documents/MyProjects/Python_Projects/F1_Scraper/raceresults/'
