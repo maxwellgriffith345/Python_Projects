@@ -62,10 +62,12 @@ def get_file_name(url): #gotta be a faster way to get this info, how to deal wit
         year_race = spliturl[0]+'all'
     else:
         year_race = spliturl[0]+spliturl[3]
-    return(year_race+'.csv')
+    return(path+year_race+'.csv')
 
 #MAIN
 import requests, bs4,csv
+
+path = '/Users/maxwellgriffith/Documents/MyProjects/Python_Projects/F1_Scraper/raceresults/'
 
 url = 'https://www.formula1.com/en/results.html/2019/races.html'
 
@@ -83,17 +85,18 @@ hungary2020 = scrape_table(get_soup(racelinks_2019[0]))
 
 #write_csv('hungary2020.csv', hungary2020)
 
-for driver in hungary2020:
-    print(driver)
-"""
+#for driver in hungary2020:
+#    print(driver)
+
 for link in racelinks_2019:
     file_name = get_file_name(link)
     race_soup = get_soup(link)
     race_table = scrape_table(race_soup)
     write_csv(file_name,race_table)
-"""
+
 #TODDO NEED A FUNCTION THAT CREATES A NEW FOLDER FOR EACH YEAR
 #TODO for 'all' races formating is weird
 #TODO it be slow as heck
 
-'/Users/maxwellgriffith/Documents/MyProjects/Python_Projects/F1_Scraper /raceresults'
+'/Users/maxwellgriffith/Documents/MyProjects/Python_Projects/F1_Scraper/raceresults'
+'/Users/maxwellgriffith/Documents/MyProjects/Python_Projects/F1_Scraper/raceresults/'
