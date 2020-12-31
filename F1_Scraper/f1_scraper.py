@@ -63,50 +63,37 @@ def get_file_name(url,path):
         year_race = spliturl[0]+spliturl[3]
     return(path+year_race+'.csv')
 
+def get_driver_linklist(year_link):
+    year_soup = get_soup(year_link)
+    catlinks = get_cat_links(year_soup)
+    driverlinks = catlinks[1]
+    driversoup = get_soup(driverlinks)
+    driverslinklist = get_race_links(driversoup)
+    return(driverslinklist)
+
+
 #MAIN
 import requests,bs4,csv,os
 
-#GET DRIVER RESULTS FOR YEAR
-path = '/Users/maxwellgriffith/Documents/MyProjects/Python_Projects/F1_Scraper/driveresults/'
+driver_path = '/Users/maxwellgriffith/Documents/MyProjects/Python_Projects/F1_Scraper/driveresults/'
+race_path = '/Users/maxwellgriffith/Documents/MyProjects/Python_Projects/F1_Scraper/raceresults/'
 main_url = 'https://www.formula1.com/en/results.html'
 main_soup = get_soup(main_url)
 
+#GET DRIVER RESULTS FOR YEAR
 year_links = get_year_links(main_soup) #get all year links
 yearlink2019 = year_links[1] #get link for 2019
-soup2019 = get_soup(yearlink2019) # create soup for 2019
-catlinks2019 = get_cat_links(soup2019) #get list of cat for 2019
-drivers2019link = catlinks2019[1] #get the link for 2019 drivers cat
 
-#gotta be a clearner way to get here
+driverlinks2019 = get_driver_linklist(yearlink2019)
 
-drivers2019soup = get_soup(drivers2019link) #create soup for 2019 drivers 
-
-drivers19linklist = get_race_links(drivers2019soup) #get a link list for all the drivers in 2019
-
-albon2019link = drivers19linklist[1]
-
-albon19filename = get_file_name(albon2019link,path)
-print(albon19filename)
-
-albon19soup = get_soup(albon2019link)
-
-albon19table = scrape_table(albon19soup)
-
-write_csv(albon19filename, albon19table)
-
-#print(albon2019link)
-#print(albon19filename)
+for driverlink in driverlinks2019:
+    filename = get_file_name(driverlink, driver_path)
+    driver_soup = get_soup(driverlink)
+    driver_table = scrape_table(driver_soup)
+    write_csv(filename,driver_table)
 
 """
 #GET RACE RESULTS FOR YEAR
-
-path = '/Users/maxwellgriffith/Documents/MyProjects/Python_Projects/F1_Scraper/raceresults/'
-
-url = 'https://www.formula1.com/en/results.html/2019/races.html'
-
-clean_url = 'https://www.formula1.com'
-
-soup = get_soup(url)
 
 yearlinks = get_year_links(soup)
 racelinks_2019 = get_race_links(soup)
@@ -119,5 +106,3 @@ for link in racelinks_2019:
     race_table = scrape_table(race_soup)
     write_csv(file_name,race_table)
 """
-#TODDO NEED A FUNCTION THAT CREATES A NEW FOLDER FOR EACH YEAR?
-#TODO it be slow as heck
