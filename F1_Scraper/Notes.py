@@ -158,3 +158,7 @@ print("Directory '% s' created" % directory)
 # is to be created already
 # exists then 'FileExistsError'
 # will be raised by os.mkdir() method  
+
+
+
+#python time package? how to use

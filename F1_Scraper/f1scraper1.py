@@ -1,10 +1,10 @@
 
-import requests,bs4,csv,os
+import requests,bs4,csv,os,lxml
 
 def get_soup(url):
     website= requests.get(url)
     website.raise_for_status()
-    soup = bs4.BeautifulSoup(website.text, 'html.parser')
+    soup = bs4.BeautifulSoup(website.text, 'lxml')
     return(soup)
 
 def scrape_links(soup):
@@ -91,7 +91,7 @@ def get_race_names(soup):
 #returns "selected" race name
 def get_race_name(soup):
     return (soup.find_all(class_ = "resultsarchive-filter-item-link FilterTrigger selected")[2].get_text().strip())
-    
+
 """
 def get_date(soup):
     return soup.find(class_ = 'full-date').get_text()
@@ -102,9 +102,12 @@ def get_circuit_info(soup):
 
 def get_date_info(soup):
     spans = soup.select(".date > span")
-    return(spans[1].get_text(),spans[2].get_text())
-    
-    
+    if len(spans) ==2:
+        return(spans[0].get_text(),spans[1].get_text())
+    else:
+        return(spans[1].get_text(),spans[2].get_text())
+
+
 #MAIN
 if __name__ == '__main__':
 
