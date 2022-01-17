@@ -3,7 +3,6 @@
 ## [F1 Web Scraper](https://github.com/maxwellgriffith345/Python_Projects/tree/main/F1_Scraper)
 - Web scraper using Beautiful Soup and Pandas to pull data from [Formula 1 website](https://www.formula1.com/en/results.html)
 - RacerScraper pulls the results from all race from 1950 - 2020
-- ConstructorScraper and DriverScrape pulls Constructor and Driver Data
 - The aim is to pull the data to create a local database of F1 race results
 
 ## [Pandas Exploration](https://github.com/maxwellgriffith345/Python_Projects/tree/main/Pandas_Exploration)
