@@ -1,0 +1,45 @@
+Pos,DriverNo,DriverFirst,DriverLast,DriverAbv,Team,Laps,Retired,PTS,RaceCountry,RaceDate,Circuit,RaceCity
+1,44,Lewis,Hamilton,HAM,Mercedes,56,0,25,Bahrain,3/28/21,Bahrain International Circuit,Sakhir
+2,33,Max,Verstappen,VER,Red Bull Racing Honda,56,0,18,Bahrain,3/28/21,Bahrain International Circuit,Sakhir
+1,33,Max,Verstappen,VER,Red Bull Racing Honda,63,0,25,Emilia Romagna,4/18/21,Autodromo Enzo e Dino Ferrari,Imola
+2,44,Lewis,Hamilton,HAM,Mercedes,63,0,19,Emilia Romagna,4/18/21,Autodromo Enzo e Dino Ferrari,Imola
+1,44,Lewis,Hamilton,HAM,Mercedes,66,0,25,Portugal,5/2/21,Autodromo Internacional do Algarve,Portimao
+2,33,Max,Verstappen,VER,Red Bull Racing Honda,66,0,18,Portugal,5/2/21,Autodromo Internacional do Algarve,Portimao
+1,44,Lewis,Hamilton,HAM,Mercedes,66,0,25,Spain,5/9/21,Circuit de Barcelona Catalunya,Barcelona
+2,33,Max,Verstappen,VER,Red Bull Racing Honda,66,0,19,Spain,5/9/21,Circuit de Barcelona Catalunya,Barcelona
+1,33,Max,Verstappen,VER,Red Bull Racing Honda,78,0,25,Monaco,5/23/21,Circuit de Monaco,Monte Carlo
+7,44,Lewis,Hamilton,HAM,Mercedes,78,0,7,Monaco,5/23/21,Circuit de Monaco,Monte Carlo
+15,44,Lewis,Hamilton,HAM,Mercedes,51,0,0,Azerbaijan,6/6/21,Baku City Circuit,Baku
+18,33,Max,Verstappen,VER,Red Bull Racing Honda,45,DNF,0,Azerbaijan,6/6/21,Baku City Circuit,Baku
+1,33,Max,Verstappen,VER,Red Bull Racing Honda,53,0,26,France,6/20/21,Circuit Paul Ricard,Le Castellet
+2,44,Lewis,Hamilton,HAM,Mercedes,53,0,18,France,6/20/21,Circuit Paul Ricard,Le Castellet
+1,33,Max,Verstappen,VER,Red Bull Racing Honda,71,0,25,Styria,6/27/21,Red Bull Ring,Spielberg
+2,44,Lewis,Hamilton,HAM,Mercedes,71,0,19,Styria,6/27/21,Red Bull Ring,Spielberg
+1,33,Max,Verstappen,VER,Red Bull Racing Honda,71,0,26,Austria,7/4/21,Red Bull Ring,Spielberg
+4,44,Lewis,Hamilton,HAM,Mercedes,71,0,12,Austria,7/4/21,Red Bull Ring,Spielberg
+1,44,Lewis,Hamilton,HAM,Mercedes,52,0,25,Great Britain,7/18/21,Silverstone Circuit,Silverstone
+0,33,Max,Verstappen,VER,Red Bull Racing Honda,0,DNF,0,Great Britain,7/18/21,Silverstone Circuit,Silverstone
+2,44,Lewis,Hamilton,HAM,Mercedes,70,0,18,Hungary,8/1/21,Hungaroring,Budapest
+9,33,Max,Verstappen,VER,Red Bull Racing Honda,70,0,2,Hungary,8/1/21,Hungaroring,Budapest
+1,33,Max,Verstappen,VER,Red Bull Racing Honda,1,0,12.5,Belgium,8/29/21,Circuit de Spa Francorchamps,Spa Francorchamps
+3,44,Lewis,Hamilton,HAM,Mercedes,1,0,7.5,Belgium,8/29/21,Circuit de Spa Francorchamps,Spa Francorchamps
+1,33,Max,Verstappen,VER,Red Bull Racing Honda,72,0,25,Netherlands,9/5/21,Circuit Zandvoort,Zandvoort
+2,44,Lewis,Hamilton,HAM,Mercedes,72,0,19,Netherlands,9/5/21,Circuit Zandvoort,Zandvoort
+0,44,Lewis,Hamilton,HAM,Mercedes,25,DNF,0,Italy,9/12/21,Autodromo Nazionale Monza,Monza
+0,33,Max,Verstappen,VER,Red Bull Racing Honda,25,DNF,0,Italy,9/12/21,Autodromo Nazionale Monza,Monza
+1,44,Lewis,Hamilton,HAM,Mercedes,53,0,25,Russia,9/26/21,Sochi Autodrom,Sochi
+2,33,Max,Verstappen,VER,Red Bull Racing Honda,53,0,18,Russia,9/26/21,Sochi Autodrom,Sochi
+2,33,Max,Verstappen,VER,Red Bull Racing Honda,58,0,18,Turkey,10/10/21,Intercity Istanbul Park,Istanbul
+5,44,Lewis,Hamilton,HAM,Mercedes,58,0,10,Turkey,10/10/21,Intercity Istanbul Park,Istanbul
+1,33,Max,Verstappen,VER,Red Bull Racing Honda,56,0,25,United States,10/24/21,Circuit of The Americas,Austin
+2,44,Lewis,Hamilton,HAM,Mercedes,56,0,19,United States,10/24/21,Circuit of The Americas,Austin
+1,33,Max,Verstappen,VER,Red Bull Racing Honda,71,0,25,Mexico,11/7/21,Autodromo Hermanos Rodriguez,Mexico City
+2,44,Lewis,Hamilton,HAM,Mercedes,71,0,18,Mexico,11/7/21,Autodromo Hermanos Rodriguez,Mexico City
+1,44,Lewis,Hamilton,HAM,Mercedes,71,0,25,Brazil,11/14/21,Autodromo Jose Carlos Pace,Sao Paulo
+2,33,Max,Verstappen,VER,Red Bull Racing Honda,71,0,18,Brazil,11/14/21,Autodromo Jose Carlos Pace,Sao Paulo
+1,44,Lewis,Hamilton,HAM,Mercedes,57,0,25,Qatar,11/21/21,Losail International Circuit,Lusail
+2,33,Max,Verstappen,VER,Red Bull Racing Honda,57,0,19,Qatar,11/21/21,Losail International Circuit,Lusail
+1,44,Lewis,Hamilton,HAM,Mercedes,50,0,26,Saudi Arabia,12/5/21,Jeddah Corniche Circuit,Jeddah
+2,33,Max,Verstappen,VER,Red Bull Racing Honda,50,0,18,Saudi Arabia,12/5/21,Jeddah Corniche Circuit,Jeddah
+1,33,Max,Verstappen,VER,Red Bull Racing Honda,58,0,26,Abu Dhabi,12/12/21,Yas Marina Circuit,Yas Island
+2,44,Lewis,Hamilton,HAM,Mercedes,58,0,18,Abu Dhabi,12/12/21,Yas Marina Circuit,Yas Island
