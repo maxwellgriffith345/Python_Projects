@@ -5,6 +5,10 @@
 - RacerScraper pulls the results from all race from 1950 - 2020
 - The aim is to pull the data to create a local database of F1 race results
 
+## [F1 Visualitation](https://github.com/maxwellgriffith345/Python_Projects/tree/main/F1_Vis)
+- Visualizations for race data pulled from [F1 Scraper](https://github.com/maxwellgriffith345/Python_Projects/tree/main/F1_Scraper)
+- Utilizing Matplotlib and Seaborn
+
 ## [Pandas Exploration](https://github.com/maxwellgriffith345/Python_Projects/tree/main/Pandas_Exploration)
 - Practice the concepts presented in Wes McKinney's book Python for Data Analysis on a variety of data sets
 - [Exploration 1](https://github.com/maxwellgriffith345/Python_Projects/blob/main/Pandas_Exploration/Exploration1.ipynb)
