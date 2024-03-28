@@ -1,8 +1,6 @@
-#This script is used to create the Regional and Build data files at the Evergy level based on the selected model(s).
-#import the following packages shown below.
+#This script is used to create the Regional and Build data files
 import os, sys, clr
 import pandas as pd
-import glob
 from openpyxl import load_workbook
 import pathlib
 import xlwings as xw
@@ -11,7 +9,6 @@ from System import DateTime, String
 import numpy as np
 from datetime import datetime, timedelta
 
-#Plexos code, current version doesn't need to be updated to run later upgrades.
 sys.path.append(r'C:\Program Files\Energy Exemplar\PLEXOS 9.0 API')
 clr.AddReference('PLEXOS_NET.Core')
 clr.AddReference('EEUTILITY')
@@ -20,13 +17,6 @@ clr.AddReference('EnergyExemplar.PLEXOS.Utility')
 from PLEXOS_NET.Core import *
 from EEUTILITY.Enums import *
 from EnergyExemplar.PLEXOS.Utility.Enums import *
-
-
-
-#After the script is done, the files will be located in the "Z:/IRP 2024/PLEXOS Plan Workbooks" folder.
-#Wait for the script to finish running before opening the files, as the script will stop running if the files are open and generate an error when it tries to retrieve or edit the data in the files.
-
-#**********DO NOT GO PAST THIS POINT UNLESS YOU ARE EDITING THE SCRIPT.**********
 
 #--HELPER FUNCTIONS--
 def getdf(sol, columns, types, collection, properties=''):
@@ -100,14 +90,12 @@ typesquarter = {'child_name': "string",'property_name': "string",'unit_name':"st
            'category_name': "string", 'value': np.float32, '_date': "string"}
 
 #Enter the locations for the solution files you want
-Location = r'Z:\IRP 2024\Model Roll Forward for 2024\Solutions\Final Plans\MET'
+Location = r'Z:\IRP 2024\Mode\Solutions\'
 
-#Edit the lists below with the model solutions files you want
+#model solutions files you want
 Solution_list = os.listdir(Location)
 Solution_list = [sub.replace(' Solution.zip', '') for sub in Solution_list]
-#Solution_list = ['Model MOW CAAH Plan','Model MOW CAAI Plan']
 
-#This section begins the data loop to generate the temporary files by looking up the solution files based on the location and model(s) provided.
 for x in Solution_list:
     print("******"+x+"******")
     Utility = x.split(' ')[1]
@@ -117,7 +105,6 @@ for x in Solution_list:
         sol_file = '' + Location + '/' + x + ' Solution.zip'
         sol.Connection(sol_file)
 
-        #The following sections on pulling individual data from the system generators.
         print('Pulling Generator data.')
         df_list.append(getdf(sol, columns, types, CollectionEnum.SystemGenerators))
 
@@ -134,21 +121,14 @@ for x in Solution_list:
         print('Pulling Constraint data.')
         df_list.append(getdf(sol, columns, types, CollectionEnum.SystemConstraints, '8'))
 
-        #This section combines all the temporary data files created above into one excel file.
         print('Aggregating data.')
         combined_df = pd.concat(df_list)
-
-        #This section is removing all unnecessary data, including extra columns, properties, and other data.
-        print('Formatting and generating data file.')
 
         combined_df.rename(columns=column_names, inplace=True)
 
         combined_df = combined_df[['Parent Name', 'Collection', 'Child Name', 'Category', 'Property', 'Band', 'Units',
                                     '2024', '2025', '2026', '2027', '2028', '2029', '2030', '2031', '2032', '2033',
                                    '2034', '2035', '2036', '2037', '2038', '2039', '2040', '2041', '2042', '2043']]
-
-
-        print("Now generating Sample Output 2 of plan workbook.")
 
         print("Pulling Quarterly Firm Capacity Data")
         quarterfirmcap = getquarterlydf(sol, columnsquarter, typesquarter, CollectionEnum.SystemGenerators, '207')
@@ -161,7 +141,6 @@ for x in Solution_list:
         print("Pulling Quarterly Planning Peak Load Data")
         df_list.append(getquarterlydf(sol, columnsquarter, typesquarter, CollectionEnum.SystemRegions, '146,116'))
 
-        #This section combines all the temporary data files created above into one excel file.
         print('Aggregating data.')
         combined_df2 = pd.concat(df_list)
 
@@ -179,9 +158,6 @@ for x in Solution_list:
         print("Pasting Sample Output data.")
 
         app = xw.App(visible=False)
-        #wb = xw.Book(r"Z:/IRP 2024/Python/Templates/" + Utility + " Plan Template.xlsx")
-
-        #Rollforward templates
         wb = xw.Book(r"Z:/IRP 2024/Python/Templates/" + Utility + " Plan Template2024.xlsx")
 
         ws = wb.sheets['SampleOutput']
@@ -217,8 +193,6 @@ for x in Solution_list:
         wb.close()
         app.quit()
 
-        #shutil.copy(r"Z:/IRP 2024/Python/Templates/" + Utility + " Plan Template.xlsx", r"Z:/IRP 2024/PLEXOS Plan Workbooks/" + x + ".xlsx")
-
         #Rollforward Template
         shutil.copy(r"Z:/IRP 2024/Python/Templates/" + Utility + " Plan Template2024.xlsx",
                     r"Z:/IRP 2024/PLEXOS Plan Workbooks/" + x + ".xlsx")
@@ -229,6 +203,5 @@ for x in Solution_list:
 
     except:
         pass
-
-# print("Script finished. Workbooks created in IRP 2024 -> PLEXOS Plan Workbooks -> Appropriate Utility Folder.")
+        
 print("Script finished. Workbooks created in IRP 2024 -> PLEXOS Plan Workbooks")
